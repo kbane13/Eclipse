@@ -10,8 +10,8 @@ public class Rectangle {
 	}
 
 	public Rectangle() {
-     //width=10;
-     //height=20;
+		//width = 10;
+		//height = 20;
 	}
 
 	public void setHeight(int height) {
