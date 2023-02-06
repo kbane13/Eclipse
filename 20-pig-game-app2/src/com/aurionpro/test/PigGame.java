@@ -6,84 +6,56 @@ import java.util.Scanner;
 
 
 public class PigGame {
-
-	 private static int player1=1;
-	private  static int player2=2;
-	private  static int WinnerPoints=22;
-    private static  int  PlayerTurn;
-    private  static int Player1TotalPoints=0;
-    private int Player2TotalPoints;
-    private  static int die;
-    private static int Roll;
-    
-     public static void  Overall() {
-    	 
-    	 System.out.println("Pig game");
-    	
-    			
-    			do {
-    			System.out.println("Enter r to roll and h to hold");
-    			Scanner sc=new Scanner(System.in);
-    			String decision=sc.nextLine();
-    			if(decision.equals("r")) {
-    				Random rand=new Random();
-    				int die=rand.nextInt(6)+1;
-    				System.out.println(die);
-    			
-    				Player1TotalPoints=Player1TotalPoints+die;
-    				System.out.println("Total"+Player1TotalPoints);
-    			
-    			
-    				if(die==1) {
-    					System.out.println(" rolled 1 and busted");
-    					 Player1TotalPoints=0;
-    				}      
-    				
-    				
-    			}
-    			if(decision.equals("h")) {
-    				System.out.println("Hold");
-    				Player1TotalPoints=0;
-    				System.out.println( "Total"+Player1TotalPoints);
-    			}
-    			
-    			}while(Player1TotalPoints<=20);
-     }
-    
-	public static void main(String[] args){
-		//Player1TotalPoints=Player1TotalPoints+die;
-//		System.out.println("Pig game");
-//	
-//		
-//		do {
-//		System.out.println("Enter r to roll and h to hold");
-//		Scanner sc=new Scanner(System.in);
-//		String decision=sc.nextLine();
-//		if(decision.equals("r")) {
-//			Random rand=new Random();
-//			int die=rand.nextInt(6)+1;
-//			System.out.println(die);
-//		
-//			Player1TotalPoints=Player1TotalPoints+die;
-//			System.out.println("Total"+Player1TotalPoints);
-//		
-//		
-//			if(die==1) {
-//				System.out.println(" rolled 1 and busted");
-//				 Player1TotalPoints=0;
-//			}      
-//			
-//			
-//		}
-//		if(decision.equals("h")) {
-//			System.out.println("Hold");
-//			Player1TotalPoints=0;
-//			System.out.println( "Total"+Player1TotalPoints);
-//		}
-//		
-//		}while(Player1TotalPoints<=20);
-		Overall();
-	}
+	public static int turn;
+	 static int  TotalScore;
+	 static int i=1;
+	public static void main(String[] args) 
+	{
+		while(turn<=4) {
+			
+		do {
+			 
+		
+		System.out.println("Enter 1 for r and 0 for h");
+		Scanner sc=new Scanner(System.in);
+		int dice=sc.nextInt();
+		Random rand=new Random();
+		int Decision=rand.nextInt(6)+1;
+		if(dice==1 ) {
+			System.out.println("Roll");
+//			 TotalScore+=Decision;
+//			System.out.println("dice is thrown "+dice);
+//			System.out.println("Random no "+Decision);
+//			System.out.println("Total Score"+TotalScore);
+		if(Decision==1) {
+			TotalScore=0;
+			System.out.println("TotalScore"+TotalScore);
+		}
+		else {
+			TotalScore+=Decision;
+			System.out.println("dice is thrown "+dice);
+			System.out.println("Random no "+Decision);
+			System.out.println("Total Score"+TotalScore);
+			turn++;
+		}
 		}
 		
-
+		if (dice==0){
+			
+			System.out.println("Hold");
+			System.out.println("Total score is" +TotalScore);
+			turn++;
+		}
+		else {
+			System.out.println("Busted");
+			turn++;
+		}
+		
+		
+	//System.out.println("turns"+i);
+	
+	}while(TotalScore<10);
+	
+		}
+}
+	}
