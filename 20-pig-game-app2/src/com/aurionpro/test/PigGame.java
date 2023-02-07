@@ -1,61 +1,66 @@
 package com.aurionpro.test;
 
-import java.util.Random;
 import java.util.Scanner;
-
-
+import java.util.Random;
 
 public class PigGame {
-	public static int turn;
-	 static int  TotalScore;
-	 static int i=1;
-	public static void main(String[] args) 
-	{
-		while(turn<=4) {
-			
+	public static void main(String[] args) {
+		int turns = 0;
+		int playerScores = 0;
+		int playerTotal = 0;
+
+		int dice;
+		boolean gameOver = false;
+		boolean turnOver = false;
+		char repeat;
+		String input;
+		Scanner keyboard = new Scanner(System.in);
+
+		Random rand = new Random();
+
+		System.out.println("Welcome to the game of Pig!\n");
+		System.out.println("Enter 'r' to roll  'h' to hold.");
 		do {
-			 
-		
-		System.out.println("Enter 1 for r and 0 for h");
-		Scanner sc=new Scanner(System.in);
-		int dice=sc.nextInt();
-		Random rand=new Random();
-		int Decision=rand.nextInt(6)+1;
-		if(dice==1 ) {
-			System.out.println("Roll");
-//			 TotalScore+=Decision;
-//			System.out.println("dice is thrown "+dice);
-//			System.out.println("Random no "+Decision);
-//			System.out.println("Total Score"+TotalScore);
-		if(Decision==1) {
-			TotalScore=0;
-			System.out.println("TotalScore"+TotalScore);
-		}
-		else {
-			TotalScore+=Decision;
-			System.out.println("dice is thrown "+dice);
-			System.out.println("Random no "+Decision);
-			System.out.println("Total Score"+TotalScore);
-			turn++;
-		}
-		}
-		
-		if (dice==0){
-			
-			System.out.println("Hold");
-			System.out.println("Total score is" +TotalScore);
-			turn++;
-		}
-		else {
-			System.out.println("Busted");
-			turn++;
-		}
-		
-		
-	//System.out.println("turns"+i);
-	
-	}while(TotalScore<10);
-	
-		}
-}
+			turns++;
+			System.out.println("Turns:" + turns);
+			while (gameOver == false) {
+				do {
+					input = keyboard.nextLine();
+					dice = rand.nextInt(6) + 1;
+					System.out.println("You rolled: " + dice);
+					if (dice == 1) {
+						playerScores = 0;
+						System.out.print("You lose....! ");
+						System.out.println("Your total is " + playerTotal);
+						turnOver = true;
+						while (playerTotal < 20)
+							;
+					} else {
+						playerScores += dice;
+						System.out.println("Your turn score is " + playerScores);
+						System.out.println("Enter 'r' to roll 'h' to hold.");
+						input = keyboard.nextLine();
+						repeat = input.charAt(0);
+
+						if (repeat == 'h')
+
+							break;
+					}
+				} while (turnOver == false || dice != 1);
+				playerTotal += playerScores;
+				System.out.println("Your score is " + playerTotal);
+				System.out.println(" r or h ");
+				playerScores = 0;
+				turns++;
+				System.out.println("Turn:" + turns);
+				if (playerTotal >= 100) {
+					System.out.println("....YOU WIN....!");
+					gameOver = true;
+					while (playerTotal >= 100)
+						;
+				}
+
+			}
+		} while (turns < 3);
 	}
+}

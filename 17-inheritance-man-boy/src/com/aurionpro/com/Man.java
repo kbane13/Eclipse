@@ -10,6 +10,9 @@ public class Man {
 	 System.out.println("Man is swimming");
  }
  public void play() {
-		System.out.println("Boy plays");
+		System.out.println("Man plays");
+	}
+ public void dance() {
+		System.out.println("Man dance");
 	}
 }

@@ -6,13 +6,18 @@ public class boy extends Man {
 	 System.out.println("boy is eating");
 	 
  }
-	@Override
+
  public void swim()
  {
 	 System.out.println("boy is swimming");
  }
+	@Override
 	public void play() {
 		System.out.println("Boy plays");
 	}
- 
+	
+	public void skate() {
+		System.out.println("Boy skating");
+	}
+	
 }
