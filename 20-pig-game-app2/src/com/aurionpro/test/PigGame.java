@@ -56,8 +56,7 @@ public class PigGame {
 				if (playerTotal >= 100) {
 					System.out.println("....YOU WIN....!");
 					gameOver = true;
-					while (playerTotal >= 100)
-						;
+					while (playerTotal >= 100);
 				}
 
 			}
